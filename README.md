@@ -19,7 +19,7 @@ Since the goal of this kind of approach is to increase returns with the help of 
 
 ## Installation Steps
 
-1.  Pull the entire repository to your local machine `git pull origin master`
+1.  Pull the entire repository to your local machine `git pull origin main`
 2.  Create a Python virtual environment in the main directory `python -m venv venv`
 3.  Activate your newly created Python virtual environment `venv\Scripts\activate`
 4.  Install all the required packages for the project present in the requirements.txt file `pip install -r requirements.txt`

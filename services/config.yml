@@ -1,0 +1,31 @@
+mode: initialization
+
+url: https://www.niftyindices.com/Backpage.aspx/getTotalReturnIndexString
+
+headers: {
+    "Accept": "application/json, text/javascript, */*; q=0.01",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en-IN,en;q=0.9",
+    "Connection": "keep-alive",
+    "Content-Length": "69",
+    "Content-Type": "application/json; charset=UTF-8",
+    # "Cookie": "_ga=GA1.2.1109494793.1670655626; _gid=GA1.2.178441724.1670655626; _gat_gtag_UA_171440393_1=1; ASP.NET_SessionId=mpi5dypnjz25351jsgvzpaep; ak_bmsc=84426ED73128118E86EBE19843842C94~000000000000000000000000000000~YAAQvgxSt99MKH+EAQAAVkzW+hKPYCH+ee5MP51L77/p91QRA18M8oPleHkN1xzz7WeY48Hfryo+TrOvFXMd0pXsqFOPZbyjKnhu7jfF3ariCqNeIdyRV3I5LZhiCvHA5ec9/fPTfDQ+i4RwMgBNWzRdybr6gGW1rgEV6vTWCUM8MJHEkLNRbzco1oes9ANMbNL4yTYmjLITPYmb55GCE1hj+6Ruz2qgfY+vk+rLJInoKpoUWy3Vd6Cg9eLy4lLTpEibLPYfij+M72bPw5RarsXMRnITJdWDN2t1Sk4x87GnFfdILaMjBoOfE/1zUOFyxE7aqNVsjLqwWInKexF4rDIum8yPlPvO6s8mWOvDWaaXvKim0uFDVqLqHOXLesdRVkNcVqvP2IdK09wxelnnI2fW61pgJwvEF7yMfC+ku76NTC30N5A8tAJU3U12cYyvr78pKYZArF9nKfkoR97vujrc4dVe2ccBGCHjF5gMwKgfkpBa; bm_sv=A9D6DB9F6F4F4CB6F43C70BE4DA1C822~YAAQvgxSt5FQKH+EAQAAy73W+hJCoUbUALufJHaiiKLeQlWcqdWcENHMIjnqPhGGwy/Yyvlx/OiHFrQGNxe/rdqHxZzg1gm3hn1pUX7hBJvL6ZrlnwW8fxNVas69+QFwruaay+jt75OQcBoo6bAVvNhPgXHqwQz3jMehI03Toh09PbU/K6Y3NdC63naxMtzKPLJ2i0j2Upy8Cy5PSAt4YruVygOs6rDu6Iil+N3vaqUvY5tjG0q907n5TzCk6DoqH7oD5eOr~1",
+    "Host": "www.niftyindices.com",
+    "Origin": "https://www.niftyindices.com",
+    "Referer": "https://www.niftyindices.com/reports/historical-data",
+    "sec-ch-ua": '"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+    "X-KL-Ajax-Request": "Ajax_Request",
+    "X-Requested-With": "XMLHttpRequest",
+  }
+
+initial_tri:
+  { "Nifty Small Cap": 2100.00, "Nifty 50": 4807.77, "tri_value": 1.00 }
+
+upper_threshold: 1.10
+lower_threshold: 0.90

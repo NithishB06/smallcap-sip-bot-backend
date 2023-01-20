@@ -1,2 +1,4 @@
 *.log
 venv
+*.pyc
+rough.py

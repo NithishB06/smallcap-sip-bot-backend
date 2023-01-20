@@ -26,21 +26,6 @@ alert_details = db['smallcap_bot_alerts']
 
 # ------------- FUNCTIONS -------------------------#
 
-def insert_alert_data(alert_details,email,status,relative_value):
-    try:
-        insert_data = {
-            'date': datetime.today(),
-            'email': email,
-            'status': status,
-            'relative_value': relative_value
-        }
-        alert_details.insert(insert_data)
-
-        return True
-
-    except Exception as err:
-        logger.error(err,traceback.format_exc())
-
 def fetch_data(url,headers,date_range):
     try:
         start_date,end_date = date_range
@@ -317,15 +302,17 @@ def send_alert_mail(alert_data,relative_value):
                     <p> <b>Note:</b> {3} </p> <br> \
                     Thanks \
                     <hr>This is an Automated Email Notification from SIP Assistant Tool.".format(user_name,rounded_relative_value,purchase,note)
-            
 
             msg_body = MIMEText(body_html, 'html')
             msg.attach(msg_body)
 
-            mail_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-            mail_server.login(mail_id,app_password)
-            mail_server.sendmail(mail_id, recipients, msg.as_string())
-            mail_server.close()
+            with smtplib.SMTP('smtp.gmail.com',587) as smtp:
+                smtp.ehlo()
+                smtp.starttls()
+                smtp.ehlo()
+                smtp.login(mail_id,app_password)
+
+                smtp.sendmail(mail_id,recipients,msg.as_string())
 
             insert_alert_data(email,True,relative_value)
 

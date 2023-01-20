@@ -26,11 +26,11 @@ Since the goal of this kind of approach is to increase returns with the help of 
 5.  Download, Install and set-up MongoDB from their [official website](https://www.mongodb.com/)
 6.  You will have to set three environment variables in your system which the script will access.
     **MAIL_ID**: This is the email account the service uses to alert subscribers.
-    **MAIL_PASSWORD**: This is the password for the above mentioned email account.
+    **APP_PASSWORD_SCRIPT**: This is the app password for the script to access the above mentioned email account.
     **SECRET_KEY**: This is the secret key Django uses for cryptographic signing. Follow [these instructions](https://www.educative.io/answers/how-to-generate-a-django-secretkey) to generate a new secret key and update it to this environment variable.
 7.  Open the **config.yml** file inside **services directory**, set the mode to `initialization`and run the services file using `python services.py`. This will seed up the database collections with initial data. Once it is done, change the mode back to `production`
 8.  Schedule your **service** to run once a day preferably after 6 PM IST.
-9.  You can clear up the data in all the collections, by running `python clear_tables.py`
+9.  You can clear up the data in the total returns index collection, by going inside `table_functions` directory and running `python clear_tri_table.py`
 
 ## Credits
 

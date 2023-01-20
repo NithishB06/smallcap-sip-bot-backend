@@ -410,7 +410,7 @@ if __name__ == '__main__':
             logger.info(f"Successfully inserted the data dump to the database")
 
             for data in total_dump_data:
-                if data['date'] == today:
+                if data['date'] == today: ### DEFAULT VALUE = today [For Testing, can be substituted with datetime(YYYY,MM,DD) ###
                     relative_value = data['relative_value']
                     if relative_value >= upper_threshold or relative_value <= lower_threshold:
                         scenario_1 = user_details.find({"subscription_option":1})

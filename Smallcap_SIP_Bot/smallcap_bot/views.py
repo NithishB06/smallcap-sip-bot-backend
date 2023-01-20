@@ -87,29 +87,31 @@ def strong_password_generator(length):
 
 def send_mail(mail_id,app_password,email,user_name,new_password):
     try:
-        msg = MIMEMultipart('alternative')
-        msg['Subject'] = f"[SIP Assistant] - New password generated for your account"
-        msg['From'] = "SIP Assistant"
+        with smtplib.SMTP('smtp.gmail.com',587) as smtp:
+            msg = MIMEMultipart('alternative')
+            smtp.ehlo()
+            smtp.starttls()
+            smtp.ehlo()
+            smtp.login(mail_id,app_password)
 
-        recipients = [email]
+            recipients = [email]
 
-        msg['To'] = "SIP Assistant"
+            msg['Subject'] = f"[SIP Assistant] - New password generated for your account"
+            msg['From'] = "SIP Assistant"
+            msg['To'] = "SIP Assistant"
 
-        body_html = "Hi {0}, <br> \
-        <p> You are receiving this message because you have requested for a new password. </p> \
-        <p> Your new password is <b>{1}</b></p> \
-        <p> It is strongly advisable to change your password after your next successful login</p> \
-        <br> \
-        Thanks \
-        <hr>This is an Automated Email Notification from SIP Assistant Tool.".format(user_name,new_password)
+            body_html = "Hi {0}, <br> \
+            <p> You are receiving this message because you have requested for a new password. </p> \
+            <p> Your new password is <b>{1}</b></p> \
+            <p> It is strongly advisable to change your password after your next successful login</p> \
+            <br> \
+            Thanks \
+            <hr>This is an Automated Email Notification from SIP Assistant Tool.".format(user_name,new_password)
 
-        msg_body = MIMEText(body_html, 'html')
-        msg.attach(msg_body)
+            msg_body = MIMEText(body_html, 'html')
+            msg.attach(msg_body)
 
-        mail_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        mail_server.login(mail_id,app_password)
-        mail_server.sendmail(mail_id, recipients, msg.as_string())
-        mail_server.close()
+            smtp.sendmail(mail_id,recipients,msg.as_string())
 
         return "Success"
     

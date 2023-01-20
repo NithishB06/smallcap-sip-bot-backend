@@ -254,8 +254,6 @@ def update_user_preference(request):
             return Response({
                 "error": "Unexpected Error",
                 "message": "Unexpected Error with the backend code",
-                "track": str(err),
-                "trace": traceback.format_exc()
             },status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['POST'])
@@ -401,6 +399,12 @@ def latest_relative_value(request):
     try:
         latest_date_object = TotalReturnsIndex_Data.objects.all().order_by('-date').first()
         latest_date_serializer = TotalReturnsIndex_Data_Serializer(latest_date_object)
+
+        if not latest_date_serializer.data['date']:
+            return Response({
+            "date": None,
+            "relative_value": "Unset",
+        },status=status.HTTP_200_OK)
 
         date_list = latest_date_serializer.data['date'].split(' ')[0].split('-')
         date = date_list[2] + '-' + date_list[1] + '-' + date_list[0]
